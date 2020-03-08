@@ -81,9 +81,13 @@ func (v *File) Length() int {
 func (v *File) Read(p []byte) (int, error) {
 	length := v.Length()
 	size := len(p)
+	dataLen := len(v.data)
 
 	for i := 0; i < size; i++ {
 		if v.offset >= length {
+			return i, io.EOF
+		}
+		if v.offset >= dataLen {
 			return i, io.EOF
 		}
 		p[i] = v.data[v.offset]
