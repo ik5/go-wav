@@ -18,7 +18,7 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/moutend/go-wav"
+	"github.com/ik5/go-wav"
 )
 
 func main() {
